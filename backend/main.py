@@ -22,7 +22,7 @@ app.add_middleware(
 
 # load model
 BASE_DIR   = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR.parent / 'model' / 'best_transfer.h5'
+MODEL_PATH = BASE_DIR.parent / 'model' / 'best_transfer.keras'
 
 if os.path.exists(MODEL_PATH):
     model = tf.keras.models.load_model(str(MODEL_PATH))
@@ -36,7 +36,7 @@ UNKNOWN_LABEL = "unknown"
 # threshold confidence minimum
 THRESHOLD = 0.6
 
-def preprocess_pipeline(image: Image.Image, IMG_SIZE = (224, 224)) -> np.ndarray:
+def preprocess_pipeline(image: Image.Image, IMG_SIZE = (200, 300)) -> np.ndarray:
     """
     Fungsi untuk melakukan preprocessing pada gambar input.
     Praktikan diminta untuk:
@@ -45,8 +45,11 @@ def preprocess_pipeline(image: Image.Image, IMG_SIZE = (224, 224)) -> np.ndarray
     - Melakukan rescaling pixel dari [0,255] ke [0,1].
     """
     
-    # TODO: Lengkapi proses preprocessing di bawah ini
+    image = image.resize(IMG_SIZE) # Resize image
     
+    arr = np.array(image).astype(np.float32) # Convert to array
+    arr = (arr - 0) / (255) # Normalize [0, 1]
+
     return arr  # pastikan mengembalikan array hasil preprocessing
 
 # endpoint untuk menerima input dan menghasilkan prediksi
