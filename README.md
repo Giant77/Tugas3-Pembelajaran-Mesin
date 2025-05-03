@@ -47,8 +47,13 @@ project-root/
 
 ### 1. Clone Repository
 
-git clone https://github.com/furqanx/Tugas-Pembelajaran-Mesin.git <br>
+```bash
+git clone https://github.com/furqanx/Tugas-Pembelajaran-Mesin.git
+```
+
+```bash
 cd Tugas-Pembelajaran-Mesin
+```
 
 ### 2. Siapkan Environment Python
 
@@ -56,7 +61,7 @@ Disarankan menggunakan **Python 3.9–3.11**.
 
 Buat environment baru, lalu install dependencies:
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
@@ -78,7 +83,7 @@ scissor/
 
 Masuk ke folder `frontend/`, lalu jalankan:
 
-```
+```bash
 streamlit run app.py
 ```
 
